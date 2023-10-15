@@ -10,7 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="container">
     <%= yield %>
+    <%= turbo_frame_tag "modal" %>
   </body>
 </html>

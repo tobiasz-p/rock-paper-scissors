@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div(data: { controller: "turbo-modal" }, class: "modal-backdrop") do %>
+    <div class="modal-container">
+      <div class="modal-header">
+        <button data-action="turbo-modal#hideModal" class="close-button">
+          <%= image_tag("close.svg") %>
+        </button>
+      </div>
+      <div data-controller="content-loader" data-content-loader-url-value="<%= lazy_load_path(choice: @user_choice) %>">
+        <h3 class="modal-title">
+          WAITING FOR CURB'S CHOOSE
+        </h3>
+        <div class="flex-row">
+          <div class="flex-col">
+            <div class="image-container">
+              <%= image_tag("#{@user_choice}.svg", class: "bet-option") %>
+            </div>
+            <h4 className="your-bet">Your bet</h4>
+          </div>
+          <div class="flex-col">
+            <div class="image-container">
+              <%= image_tag("loader.svg", class: "bet-option") %>
+            </div>
+            <%= image_tag("curb_logo.png", class: "bet-option") %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  </div>
+<% end %>
