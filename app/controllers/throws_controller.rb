@@ -11,6 +11,10 @@ class ThrowsController < ApplicationController
   }.freeze
 
   def show
+    @user_choice = params[:choice]
+  end
+
+  def lazy_load
     user_choice = params[:choice]
     # Define the API endpoint URL
     api_url = Settings.throw_api_url
@@ -36,8 +40,6 @@ class ThrowsController < ApplicationController
   private
 
   def throw_result(user_choice, computer_choice)
-    Rails.logger.debug(user_choice)
-    Rails.logger.debug(computer_choice)
     if user_choice == computer_choice
       :tied
     elsif RULES[user_choice] == computer_choice

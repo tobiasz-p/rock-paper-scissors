@@ -3,11 +3,12 @@ h1 {
     color: #36006C;
 }
 
-p {
-    font: normal normal 200 21px/32px Roboto, system-ui;
-    margin: 9px 0 9px 0;
-    color: #000000;
-    opacity: 0.54;
+h3 {
+    text-align: center;
+    margin: 9px;
+    font: normal normal normal 32px/39px Montserrat, system-ui;
+    letter-spacing: 0px;
+    color: #36006C;
 }
 
 h2 {
@@ -17,13 +18,18 @@ h2 {
     margin-botton: 41px;
 }
 
-.modal-title {
+h4 {
     text-align: center;
-    margin: 9px;
-    font: normal normal normal 32px/39px Montserrat, system-ui;
-    letter-spacing: 0px;
+    font: normal normal normal 21px/25px Montserrat, system-ui;
     color: #36006C;
     opacity: 1;
+}
+
+p {
+    font: normal normal 200 21px/32px Roboto, system-ui;
+    margin: 9px 0 9px 0;
+    color: #000000;
+    opacity: 0.54;
 }
 
 .container {
@@ -35,13 +41,24 @@ h2 {
     max-width: 754px;
 }
 
-.bet-options {
+.flex-col {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.bet-option-container {
+.flex-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.loader-items {
+   gap: 358px;
+}
+
+.image-container{
     width: 240px;
     height: 273px;
     background-color: white;
@@ -52,8 +69,7 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-
-.bet-option-container:hover {
+.image-container:hover {
     background: #F8F8F8 0 0 no-repeat padding-box;
     border-radius: 5px;
     opacity: 1;
@@ -75,8 +91,7 @@ h2 {
 }
 
 .modal-container {
-    width: 352px;
-    height: 464px;
+    width: max-content;
     margin: 128px auto 0 auto;
     padding: 30px 30px 57px 30px;
     display: flex;

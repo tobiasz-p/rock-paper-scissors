@@ -6,25 +6,25 @@
           <%= image_tag("close.svg") %>
         </button>
       </div>
-
-      <h3 class="modal-title">
-        YOU <%= @result.upcase %>!
-      </h3>
-      <p>
-        Curb with <%= @computer_choice %>
-        <% case @result
-           when :won %>
-          loses
-        <% when :lost %>
-          wins
-        <% else %>
-          ties
-        <% end %>
-      </p>
-      <div class='bet-option-container'>
-        <%= image_tag("#{@computer_choice}", class: "bet-option") %>
+      <div data-controller="content-loader" data-content-loader-url-value="<%= lazy_load_path(choice: @user_choice) %>">
+        <h3 class="modal-title">
+          WAITING FOR CURB'S CHOOSE
+        </h3>
+        <div class="flex-row">
+          <div class="flex-col">
+            <div class="image-container">
+              <%= image_tag("#{@user_choice}.svg", class: "bet-option") %>
+            </div>
+            <h4 className="your-bet">Your bet</h4>
+          </div>
+          <div class="flex-col">
+            <div class="image-container">
+              <%= image_tag("loader.svg", class: "bet-option") %>
+            </div>
+            <%= image_tag("curb_logo.png", class: "bet-option") %>
+          </div>
+        </div>
       </div>
-      <%= button_tag "Ok", data: { action: "turbo-modal#hideModal" }, class: "ok-button" %>
-    </div>
   <% end %>
+  </div>
 <% end %>

@@ -1,0 +1,22 @@
+<div class="flex-col">
+  <h3 class="modal-title">
+    YOU <%= @result.upcase %>!
+  </h3>
+  <p>
+    Curb with <%= @computer_choice %>
+    <% case @result
+       when :won %>
+      loses
+    <% when :lost %>
+      wins
+    <% else %>
+      ties
+    <% end %>
+  </p>
+  <div class='image-container'>
+    <%= image_tag("#{@computer_choice}", class: "bet-option") %>
+  </div>
+  <%= button_tag "Ok", data: { action: "turbo-modal#hideModal" }, class: "ok-button" %>
+</div>
+
+
