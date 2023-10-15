@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web application that allows user to play rock-paper-scissors.
 
-Things you may want to cover:
+# Configuration
+1. Clone repository
+```bash
+git clone git@github.com:tobiasz-p/rock-paper-scissors.git
+```
 
-* Ruby version
+2. Install gems
+```bash
+cd rock-paper-scissors
+bundle install
+```
 
-* System dependencies
+3. Run rails server
+```bash
+rails s
+```
+4. Open browser and go to http://localhost:3000
+5. Have fun!
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
