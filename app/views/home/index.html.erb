@@ -1,0 +1,10 @@
+<h1>ROCK – PAPER – SCISSORS</h1>
+<p>Rock Paper Scissors is a zero sum game that is usually played by two people using their hands and no tools. The idea is to make shapes with an outstretched hand where each shape will have a certain degree of power and will lead to an outcome.</p>
+<h2>SELECT YOUR BET</h2>
+<div class="bet-options">
+  <% %i[rock paper scissors].each do |bet_option| %>
+    <button class="bet-option-container" data-choice=<%= bet_option %>>
+      <%= image_tag("#{bet_option}.svg", class: "bet-option") %>
+    </button>
+  <% end %>
+</div>
