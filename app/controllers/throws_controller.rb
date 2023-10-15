@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-class ThrowsController < ApplicationController
-  require "net/http"
+require "net/http"
 
-  # RPS game rules (key beats value)
+class ThrowsController < ApplicationController
   RULES = {
     rock: :scissors,
     paper: :rock,
@@ -15,31 +14,30 @@ class ThrowsController < ApplicationController
   end
 
   def lazy_load
-    user_choice = params[:choice]
-    # Define the API endpoint URL
-    api_url = Settings.throw_api_url
+    @user_choice = params[:choice]
+    @computer_choice = fetch_computer_choice
 
-    # Prepare the request
-    uri = URI(api_url)
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true if uri.scheme == "https"
-
-    # Make the GET request to the API
-    response = http.get(uri)
-
-    @computer_choice = if response.is_a?(Net::HTTPSuccess)
-                         JSON.parse(response.body)["body"]
-                       else
-                         RULES.keys.sample
-                       end
-
-    # Determine the result of the game
-    @result = throw_result(user_choice.to_sym, @computer_choice)
+    @result = determine_result(@user_choice.to_sym, @computer_choice)
   end
 
   private
 
-  def throw_result(user_choice, computer_choice)
+  def fetch_computer_choice
+    uri = URI(Settings.throw_api_url)
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = uri.scheme == "https"
+
+    response = http.get(uri)
+
+    if response.is_a?(Net::HTTPSuccess)
+      JSON.parse(response.body)["body"]
+    else
+      RULES.keys.sample
+    end
+  end
+
+  def determine_result(user_choice, computer_choice)
     if user_choice == computer_choice
       :tied
     elsif RULES[user_choice] == computer_choice
