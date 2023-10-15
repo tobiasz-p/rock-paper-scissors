@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "modal" do %>
+  <%= tag.div(data: { controller: "turbo-modal" }, class: "modal-backdrop") do %>
+    <div class="modal-container">
+      <div class="modal-header">
+        <button data-action="turbo-modal#hideModal" class="close-button">
+          <%= image_tag("close.svg") %>
+        </button>
+      </div>
+
+      <h3 class="modal-title">
+        YOU <%= @result.upcase %>!
+      </h3>
+      <p>
+        Curb with <%= @computer_choice %>
+        <% case @result
+           when :won %>
+          loses
+        <% when :lost %>
+          wins
+        <% else %>
+          ties
+        <% end %>
+      </p>
+      <div class='bet-option-container'>
+        <%= image_tag("#{@computer_choice}", class: "bet-option") %>
+      </div>
+      <%= button_tag "Ok", data: { action: "turbo-modal#hideModal" }, class: "ok-button" %>
+    </div>
+  <% end %>
+<% end %>

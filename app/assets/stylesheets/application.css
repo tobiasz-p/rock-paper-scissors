@@ -1,24 +1,28 @@
 h1 {
-    text-align: left;
     font: normal normal normal 50px/61px Montserrat, system-ui;
-    letter-spacing: 0px;
     color: #36006C;
-    opacity: 1;
 }
 
 p {
-    text-align: left;
-    font: normal normal 300 21px/32px Roboto, system-ui;
-    letter-spacing: 0px;
+    font: normal normal 200 21px/32px Roboto, system-ui;
+    margin: 9px 0 9px 0;
     color: #000000;
     opacity: 0.54;
 }
 
 h2 {
-    text-align: left;
     font: normal normal normal 21px/25px Montserrat, system-ui;
-    letter-spacing: 0px;
     color: #000000;
+    margin-top: 35px;
+    margin-botton: 41px;
+}
+
+.modal-title {
+    text-align: center;
+    margin: 9px;
+    font: normal normal normal 32px/39px Montserrat, system-ui;
+    letter-spacing: 0px;
+    color: #36006C;
     opacity: 1;
 }
 
@@ -37,13 +41,17 @@ h2 {
     align-items: center;
 }
 
-.bet-option-container{
+.bet-option-container {
     width: 240px;
     height: 273px;
     background-color: white;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: background-color 0.3s ease;
 }
+
 
 .bet-option-container:hover {
     background: #F8F8F8 0 0 no-repeat padding-box;
@@ -53,4 +61,63 @@ h2 {
 
 .bet-option {
     width: 63px;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-container {
+    width: 352px;
+    height: 464px;
+    margin: 128px auto 0 auto;
+    padding: 30px 30px 57px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 40px #0000001A;
+    border-radius: 5px;
+}
+
+.modal-header {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.modal-title {
+    text-align: center;
+    font: normal normal normal 32px/39px Montserrat, system-ui;
+    letter-spacing: 0px;
+    color: #36006C;
+}
+
+.close-button {
+    background-color: white;
+    padding: 0;
+    height: 20px;
+    width: 20px;
+    border: none;
+}
+
+.ok-button {
+    top: 583px;
+    left: 507px;
+    width: 352px;
+    height: 73px;
+    padding: 0 40px 0 40px;
+    background: #36006C;
+    border-radius: 5px;
+    text-align: center;
+    font: normal normal normal 32px/39px Montserrat, system-ui;
+    color: #FFFFFF;
 }
